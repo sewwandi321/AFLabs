@@ -1,0 +1,26 @@
+{
+  "name": "loajslab5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sewwandi321/AFLabs.git"
+  },
+  "author": "navodya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sewwandi321/AFLabs/issues"
+  },
+  "homepage": "https://github.com/sewwandi321/AFLabs#readme",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "koa": "^2.13.1",
+    "koa-body-parser": "^1.1.2",
+    "koa-bodyparser": "^4.3.0",
+    "uuid": "^8.3.2"
+  }
+}
