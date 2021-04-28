@@ -1,8 +1,10 @@
 const Koa = require('koa');
         bodyParser = require("koa-body-parser");
-
+serve = require('koa-static');
 const HomeRouter =require('./routes/home.router');
-const PostRouter = require("@koa/router");
+const PostRouter =require('./routes/home.router');
+
+require('./dal');
 //Koa application
 const app = new Koa();
 //when body parser  sees this he convert this in to json
@@ -28,19 +30,25 @@ app.use(bodyParser());
 //ones routes hits it it would not sends it request under down of the other handler
 app.use(HomeRouter.routes())
     .use(HomeRouter.allowedMethods());
- //
- // app.use(PostRouter.routes())
- //     .use(PostRouter.allowedMethods());
+
+  app.use(PostRouter.routes())
+     .use(PostRouter.allowedMethods());
+
+    app.use(serve('public/'));
+
 
 //hello is returning from here
-app.use(ctx => {
-    ctx.body = 'Hello';
-});
+// app.use(ctx => {
+//     ctx.body = 'Hello';
+// });
+
 //making application available via port 3000
-app.listen(3000,err => {
-    if(err){
-        console.error(err);
-        return;
-    }
-});
+// app.listen(3000,err => {
+//     if(err){
+//         console.error(err);
+//         return;
+//     }
+// });
 console.log('Application is running on port 3000');
+
+app.listen(3000);
